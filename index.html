@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Than Da Jun — General Surgeon, Kota Kinabalu</title>
+  <meta name="description" content="Dr. Than Da Jun — Consultant General Surgeon specialising in Laparoscopic Colorectal & Hernia Surgery, Hospital Queen Elizabeth II, Kota Kinabalu, Sabah." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #0d2137;
+      --teal:   #0b7c8e;
+      --teal2:  #0e9aad;
+      --gold:   #c9a84c;
+      --light:  #f5f8fa;
+      --white:  #ffffff;
+      --text:   #1a2a3a;
+      --muted:  #5a7080;
+      --border: #d4e1e8;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(13,33,55,.12);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    section { padding: 80px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: .78rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--navy); margin-bottom: 16px; }
+    .divider { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 32px; }
+    .btn { display: inline-block; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: .95rem; cursor: pointer; transition: all .25s; border: none; }
+    .btn-primary { background: var(--teal); color: #fff; }
+    .btn-primary:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(11,124,142,.3); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--navy); }
+    .hidden { display: none !important; }
+
+    /* ── Language bar ── */
+    #lang-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--navy); padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px; box-shadow: 0 2px 12px rgba(0,0,0,.2);
+    }
+    #lang-bar .logo-text { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: .02em; }
+    #lang-bar .logo-text span { color: var(--gold); }
+    .lang-nav { display: flex; align-items: center; gap: 6px; }
+    .lang-btn {
+      padding: 5px 14px; border-radius: 20px; border: 1.5px solid rgba(255,255,255,.3);
+      color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 500;
+      cursor: pointer; background: transparent; transition: all .2s;
+    }
+    .lang-btn.active, .lang-btn:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: rgba(255,255,255,.75); font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .hamburger { display: none; color: white; font-size: 1.4rem; cursor: pointer; }
+
+    /* ── Hero ── */
+    #hero {
+      margin-top: 52px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0a3550 55%, #0b5c70 100%);
+      min-height: 94vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    .hero-text .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.4); color: var(--gold); padding: 6px 16px; border-radius: 20px; font-size: .82rem; font-weight: 600; letter-spacing: .08em; margin-bottom: 24px; }
+    .hero-text h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); color: var(--white); line-height: 1.15; margin-bottom: 12px; }
+    .hero-text h1 span { color: var(--gold); }
+    .hero-text .subtitle { font-size: 1.1rem; color: rgba(255,255,255,.7); margin-bottom: 10px; }
+    .hero-text .hospital { font-size: .95rem; color: rgba(255,255,255,.55); margin-bottom: 32px; display: flex; align-items: center; gap: 8px; }
+    .hero-creds { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .cred-pill { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.85); padding: 5px 14px; border-radius: 20px; font-size: .82rem; font-weight: 500; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-photo-wrap { display: flex; justify-content: center; align-items: flex-end; }
+    .hero-photo-card {
+      background: rgba(255,255,255,.06); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.15); border-radius: 20px;
+      padding: 24px; text-align: center; position: relative;
+    }
+    .hero-photo-placeholder {
+      width: 260px; height: 310px; border-radius: 14px;
+      background: linear-gradient(160deg, rgba(11,124,142,.4), rgba(13,33,55,.6));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.4); font-size: 4rem; margin: 0 auto 16px;
+      border: 2px dashed rgba(255,255,255,.15);
+    }
+    .hero-photo-placeholder p { font-size: .8rem; margin-top: 10px; font-family: 'Inter', sans-serif; }
+    .stat-row { display: flex; justify-content: center; gap: 28px; margin-top: 8px; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
+    .stat-lbl { font-size: .72rem; color: rgba(255,255,255,.55); margin-top: 2px; }
+
+    /* ── About ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .about-card { background: var(--light); border-radius: var(--radius); padding: 32px; }
+    .about-card h4 { font-size: 1rem; color: var(--teal); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .about-card h4 i { font-size: 1.1rem; }
+    .qual-item { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .qual-item:last-child { border-bottom: none; }
+    .qual-year { min-width: 60px; font-size: .82rem; font-weight: 600; color: var(--teal); padding-top: 2px; }
+    .qual-detail strong { display: block; font-size: .95rem; color: var(--text); }
+    .qual-detail span { font-size: .82rem; color: var(--muted); }
+    .about-text p { color: var(--muted); margin-bottom: 16px; font-size: .97rem; }
+
+    /* ── Specialties ── */
+    #specialties { background: var(--light); }
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .spec-card {
+      background: var(--white); border-radius: var(--radius); padding: 32px 24px;
+      text-align: center; box-shadow: var(--shadow); transition: all .25s; border-top: 3px solid transparent;
+    }
+    .spec-card:hover { transform: translateY(-6px); border-top-color: var(--teal); }
+    .spec-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--teal), var(--teal2)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #fff; font-size: 1.6rem; }
+    .spec-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 8px; }
+    .spec-card p { font-size: .85rem; color: var(--muted); }
+
+    /* ── Timeline / Experience ── */
+    #experience { background: var(--white); }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .tl-item { position: relative; padding-bottom: 36px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot { position: absolute; left: -28px; top: 4px; width: 16px; height: 16px; background: var(--teal); border-radius: 50%; border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--teal); }
+    .tl-year { font-size: .8rem; font-weight: 600; color: var(--teal); margin-bottom: 4px; }
+    .tl-role { font-size: 1.05rem; font-weight: 600; color: var(--navy); font-family: 'Playfair Display', serif; }
+    .tl-place { font-size: .88rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Publications ── */
+    #publications { background: var(--navy); color: #fff; }
+    #publications .section-title { color: #fff; }
+    #publications .section-label { color: var(--teal2); }
+    .pub-grid { display: grid; gap: 16px; }
+    .pub-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 24px; display: flex; gap: 20px; align-items: flex-start; transition: background .2s; }
+    .pub-card:hover { background: rgba(255,255,255,.1); }
+    .pub-num { min-width: 36px; height: 36px; background: var(--gold); color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; flex-shrink: 0; }
+    .pub-body h4 { font-size: .97rem; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+    .pub-body p { font-size: .82rem; color: rgba(255,255,255,.5); }
+    .pub-body a { color: var(--teal2); font-size: .8rem; }
+
+    /* ── Achievements ── */
+    #achievements { background: var(--light); }
+    .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .ach-card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start; }
+    .ach-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--teal), var(--teal2)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; flex-shrink: 0; }
+    .ach-body .year { font-size: .78rem; font-weight: 700; color: var(--teal); }
+    .ach-body strong { display: block; font-size: .93rem; color: var(--navy); }
+    .ach-body span { font-size: .82rem; color: var(--muted); }
+
+    /* ── Testimonials ── */
+    #testimonials { background: var(--white); }
+    .testi-intro { max-width: 600px; color: var(--muted); margin-bottom: 40px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .testi-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--white); transition: transform .25s; }
+    .testi-card:hover { transform: translateY(-4px); }
+    .testi-photo { width: 100%; height: 220px; background: linear-gradient(135deg, var(--teal), var(--navy)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.3); font-size: 3rem; position: relative; }
+    .testi-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-body { padding: 20px; }
+    .testi-quote { font-size: .9rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+    .testi-name { font-size: .85rem; font-weight: 600; color: var(--navy); }
+    .testi-stars { color: var(--gold); font-size: .85rem; margin-bottom: 8px; }
+    .testi-placeholder { text-align: center; padding: 40px 20px; background: var(--light); border-radius: var(--radius); border: 2px dashed var(--border); }
+    .testi-placeholder i { font-size: 2.5rem; color: var(--border); display: block; margin-bottom: 12px; }
+    .testi-placeholder p { color: var(--muted); font-size: .88rem; }
+
+    /* ── Contact & Feedback ── */
+    #contact { background: linear-gradient(135deg, var(--navy) 0%, #0a3550 100%); color: #fff; }
+    #contact .section-title { color: #fff; }
+    #contact .section-label { color: var(--teal2); }
+    #contact .divider { background: var(--gold); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+    .contact-info h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 24px; }
+    .contact-item { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+    .contact-icon { width: 42px; height: 42px; background: rgba(255,255,255,.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--teal2); font-size: 1rem; flex-shrink: 0; }
+    .contact-item strong { display: block; color: #fff; font-size: .9rem; }
+    .contact-item span { font-size: .85rem; color: rgba(255,255,255,.6); }
+    .contact-social { display: flex; gap: 12px; margin-top: 32px; }
+    .social-btn { width: 42px; height: 42px; background: rgba(255,255,255,.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); font-size: 1rem; transition: all .2s; }
+    .social-btn:hover { background: var(--teal); color: #fff; }
+    .form-box { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 36px; }
+    .form-box h3 { font-size: 1.2rem; color: #fff; margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .82rem; color: rgba(255,255,255,.6); margin-bottom: 6px; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px; background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15); border-radius: 8px; color: #fff;
+      font-family: 'Inter', sans-serif; font-size: .9rem; transition: border-color .2s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,.3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal2); }
+    .form-group select option { background: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { width: 100%; padding: 14px; background: var(--teal); color: #fff; border: none; border-radius: 8px; font-size: .95rem; font-weight: 600; cursor: pointer; transition: all .2s; margin-top: 8px; }
+    .form-submit:hover { background: var(--teal2); }
+    .form-success { display: none; text-align: center; padding: 20px; color: #4ade80; }
+    .form-success i { font-size: 2rem; display: block; margin-bottom: 10px; }
+
+    /* ── Footer ── */
+    footer { background: #060f18; color: rgba(255,255,255,.45); text-align: center; padding: 28px 20px; font-size: .82rem; }
+    footer strong { color: rgba(255,255,255,.7); }
+
+    /* ── Floating CTA ── */
+    .float-cta { position: fixed; bottom: 24px; right: 24px; z-index: 900; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+    .float-btn { display: flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 50px; font-size: .88rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,.25); transition: all .2s; }
+    .float-wa { background: #25D366; color: #fff; }
+    .float-wa:hover { background: #1ebe5e; transform: scale(1.04); }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Mobile nav ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 52px; left: 0; right: 0; background: var(--navy); padding: 20px; z-index: 999; box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo-wrap { order: -1; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 56px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LANGUAGE BAR / NAV ── -->
+<nav id="lang-bar">
+  <div class="logo-text">Dr. <span>Than Da Jun</span></div>
+  <div class="nav-links" id="nav-links">
+    <a href="#about" data-i="nav_about">About</a>
+    <a href="#specialties" data-i="nav_spec">Specialties</a>
+    <a href="#testimonials" data-i="nav_testi">Patients</a>
+    <a href="#contact" data-i="nav_contact">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div class="lang-nav">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+      <button class="lang-btn" onclick="setLang('ms')">BM</button>
+    </div>
+    <div class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <div class="badge"><i class="fas fa-stethoscope"></i> <span data-i="hero_badge">General Surgeon · Sabah</span></div>
+        <h1>Dr. Than<br/><span>Da Jun</span></h1>
+        <p class="subtitle" data-i="hero_sub">MD · MRCS · Doctor of General Surgery · ATLS</p>
+        <p class="hospital"><i class="fas fa-hospital"></i> <span data-i="hero_hosp">Hospital Queen Elizabeth II, Kota Kinabalu, Sabah</span></p>
+        <div class="hero-creds">
+          <span class="cred-pill">Laparoscopic Surgery</span>
+          <span class="cred-pill">Colorectal Surgery</span>
+          <span class="cred-pill">Hernia Repair</span>
+          <span class="cred-pill">Endoscopy</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-primary" data-i="hero_btn1">Get in Touch</a>
+          <a href="#about" class="btn btn-outline" data-i="hero_btn2">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <div class="hero-photo-card">
+          <div class="hero-photo-placeholder">
+            <i class="fas fa-user-md"></i>
+            <p data-i="photo_hint">Your photo here</p>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl" data-i="stat1">Years Experience</div></div>
+            <div class="stat"><div class="stat-num">4</div><div class="stat-lbl" data-i="stat2">Publications</div></div>
+            <div class="stat"><div class="stat-num">3</div><div class="stat-lbl" data-i="stat3">Institutions</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <p class="section-label" data-i="about_label">About Me</p>
+    <h2 class="section-title" data-i="about_title">Trained for Excellence,<br/>Committed to Patients</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-text">
+          <p data-i="about_p1" style="color:var(--muted);margin-bottom:16px;font-size:.97rem;">I am a General Surgeon with special interest in <strong>Laparoscopic Colorectal and Hernia Surgery</strong>, based at Hospital Queen Elizabeth II in Kota Kinabalu, Sabah. My journey in medicine began at Jinan University, China, and I have since trained and practised across Sabah for over a decade.</p>
+          <p data-i="about_p2" style="color:var(--muted);margin-bottom:16px;font-size:.97rem;">I hold a <strong>Doctor of General Surgery</strong> from the National University of Malaysia (UKM) and am a <strong>Member of the Royal College of Surgeons, Edinburgh (MRCS)</strong>. My commitment to the field extends to education — serving as an MRCS examiner, cancer awareness speaker, and coordinator for international surgical conferences.</p>
+          <p data-i="about_p3" style="color:var(--muted);margin-bottom:24px;font-size:.97rem;">I speak English, Malay, and Chinese, allowing me to communicate directly and clearly with patients from diverse backgrounds across Sabah.</p>
+        </p>
+        <div class="about-card">
+          <h4><i class="fas fa-language"></i> <span data-i="lang_title">Languages</span></h4>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="cred-pill" style="background:var(--teal);color:#fff;padding:6px 16px;border-radius:20px;font-size:.85rem;">English</span>
+            <span class="cred-pill" style="background:var(--teal);color:#fff;padding:6px 16px;border-radius:20px;font-size:.85rem;">Bahasa Melayu</span>
+            <span class="cred-pill" style="background:var(--teal);color:#fff;padding:6px 16px;border-radius:20px;font-size:.85rem;">中文 (Chinese)</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-card" style="margin-bottom:20px;">
+          <h4><i class="fas fa-graduation-cap"></i> <span data-i="qual_title">Qualifications</span></h4>
+          <div class="qual-item">
+            <div class="qual-year">2023</div>
+            <div class="qual-detail"><strong data-i="q1">Doctor of General Surgery</strong><span>National University of Malaysia (UKM)</span></div>
+          </div>
+          <div class="qual-item">
+            <div class="qual-year">2018</div>
+            <div class="qual-detail"><strong data-i="q2">MRCS</strong><span>Royal College of Surgeons, Edinburgh</span></div>
+          </div>
+          <div class="qual-item">
+            <div class="qual-year">2018</div>
+            <div class="qual-detail"><strong>ATLS</strong><span>Academy of Medicine of Malaysia</span></div>
+          </div>
+          <div class="qual-item">
+            <div class="qual-year">2012</div>
+            <div class="qual-detail"><strong data-i="q3">Doctor of Medicine (MD)</strong><span>Jinan University, China</span></div>
+          </div>
+        </div>
+        <div class="about-card">
+          <h4><i class="fas fa-id-badge"></i> <span data-i="reg_title">Registration</span></h4>
+          <div class="qual-item">
+            <div class="qual-year">2013–</div>
+            <div class="qual-detail"><strong data-i="r1">Malaysia Medical Council</strong><span data-i="r1s">Active Registration</span></div>
+          </div>
+          <div class="qual-item">
+            <div class="qual-year">2013–</div>
+            <div class="qual-detail"><strong data-i="r2">Ministry of Health, Malaysia</strong><span data-i="r2s">Active Registration</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPECIALTIES ── -->
+<section id="specialties">
+  <div class="container">
+    <p class="section-label" data-i="spec_label">Areas of Expertise</p>
+    <h2 class="section-title" data-i="spec_title">What I Treat & Perform</h2>
+    <div class="divider"></div>
+    <div class="spec-grid reveal">
+      <div class="spec-card">
+        <div class="spec-icon"><i class="fas fa-procedures"></i></div>
+        <h3 data-i="sp1">Laparoscopic Colorectal Surgery</h3>
+        <p data-i="sp1d">Minimally invasive bowel resections, colon cancer surgery, rectal procedures with faster recovery.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon"><i class="fas fa-band-aid"></i></div>
+        <h3 data-i="sp2">Hernia Repair</h3>
+        <p data-i="sp2d">Laparoscopic inguinal, umbilical, incisional and complex abdominal wall hernia repairs.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon"><i class="fas fa-camera"></i></div>
+        <h3 data-i="sp3">Endoscopy</h3>
+        <p data-i="sp3d">Diagnostic and therapeutic upper GI endoscopy and colonoscopy for bowel health evaluation.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3 data-i="sp4">Emergency Surgery</h3>
+        <p data-i="sp4d">Acute abdominal emergencies, trauma surgery and critical care surgical management.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon"><i class="fas fa-microscope"></i></div>
+        <h3 data-i="sp5">Colorectal Cancer</h3>
+        <p data-i="sp5d">Screening, diagnosis and surgical management of colorectal cancers with a multidisciplinary approach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE TIMELINE ── -->
+<section id="experience">
+  <div class="container" style="max-width:720px;">
+    <p class="section-label" data-i="exp_label">Career Journey</p>
+    <h2 class="section-title" data-i="exp_title">Experience</h2>
+    <div class="divider"></div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023 – Present</div>
+        <div class="tl-role" data-i="tl1">General Surgeon</div>
+        <div class="tl-place" data-i="tl1p">Hospital Queen Elizabeth II, Kota Kinabalu, Sabah<br/><small>Special Interest: Laparoscopic Colorectal &amp; Hernia Surgery</small></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2019 – 2023</div>
+        <div class="tl-role" data-i="tl2">Surgical Resident</div>
+        <div class="tl-place" data-i="tl2p">Hospital Queen Elizabeth, Sabah</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2015 – 2018</div>
+        <div class="tl-role" data-i="tl3">Medical Officer</div>
+        <div class="tl-place" data-i="tl3p">Hospital Beaufort &amp; Hospital Tawau, Sabah</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2013 – 2015</div>
+        <div class="tl-role" data-i="tl4">House Officer</div>
+        <div class="tl-place" data-i="tl4p">Hospital Queen Elizabeth, Sabah</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACHIEVEMENTS ── -->
+<section id="achievements">
+  <div class="container">
+    <p class="section-label" data-i="ach_label">Leadership & Recognition</p>
+    <h2 class="section-title" data-i="ach_title">Key Roles & Achievements</h2>
+    <div class="divider"></div>
+    <div class="ach-grid reveal">
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fas fa-globe-asia"></i></div>
+        <div class="ach-body"><div class="year">2025</div><strong data-i="a1">APFCP Coordinator, Sabah</strong><span>Asia Pacific Federation of Coloproctology Congress 2025</span></div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fas fa-award"></i></div>
+        <div class="ach-body"><div class="year">2025</div><strong data-i="a2">MRCS Examiner</strong><span>MRCS Mock Exam, Hospital Queen Elizabeth, Sabah</span></div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fas fa-ribbon"></i></div>
+        <div class="ach-body"><div class="year">2024–25</div><strong data-i="a3">Cancer Awareness Speaker</strong><span>Colorectal Cancer Awareness Week, Sabah</span></div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="ach-body"><div class="year">2024</div><strong data-i="a4">SELSMA Invited Speaker</strong><span>Society of Endoscopic & Laparoscopic Surgeons Congress</span></div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fas fa-users"></i></div>
+        <div class="ach-body"><div class="year">2025</div><strong data-i="a5">Sabah Surgical Society</strong><span>Active Member, SSS</span></div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fas fa-plane"></i></div>
+        <div class="ach-body"><div class="year">2026</div><strong data-i="a6">International Masterclass</strong><span>PelvEx China, Pelvic Exenteration Surgery, Shanghai</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="container">
+    <p class="section-label" data-i="pub_label">Research</p>
+    <h2 class="section-title" data-i="pub_title">Peer-Reviewed Publications</h2>
+    <div class="divider"></div>
+    <div class="pub-grid reveal">
+      <div class="pub-card">
+        <div class="pub-num">1</div>
+        <div class="pub-body">
+          <h4>Rare coincidence of gallbladder perforation in blunt traumatic injury: A case report.</h4>
+          <p>Than DJ, Chong SZC, Sultan MAH, et al. · Malaysian Journal of Medicine and Health Sciences 19(6):368–370</p>
+          <a href="https://doi.org/10.47836/mjmhs.19.6.49" target="_blank">DOI: 10.47836/mjmhs.19.6.49 <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-num">2</div>
+        <div class="pub-body">
+          <h4>Post-thoracotomy paraplegia after oxidized cellulose spinal compression.</h4>
+          <p>Than DJ, Perumall VV, Johan S, et al. · Einstein (São Paulo) 21:1–3</p>
+          <a href="https://doi.org/10.31744/einstein_journal/2023RC0078" target="_blank">DOI: 10.31744/einstein_journal/2023RC0078 <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-num">3</div>
+        <div class="pub-body">
+          <h4>Bucket of nails: Foreign body ingestion in a young adult.</h4>
+          <p>Than DJ, Chen JKS, Bolong MF, et al. · ANZ Journal of Surgery 92(3)</p>
+          <a href="https://doi.org/10.1111/ans.17073" target="_blank">DOI: 10.1111/ans.17073 <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-num">4</div>
+        <div class="pub-body">
+          <h4>Dieulafoy's lesion: An unexpected and rare cause of upper gastrointestinal bleeding.</h4>
+          <p>Rajanthran SK, Singh HC, Than DJ &amp; Hayati F. · BMJ Case Reports 13(12):240905</p>
+          <a href="https://doi.org/10.1136/bcr-2020-240905" target="_blank">DOI: 10.1136/bcr-2020-240905 <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="container">
+    <p class="section-label" data-i="testi_label">Patient Stories</p>
+    <h2 class="section-title" data-i="testi_title">What Patients Say</h2>
+    <div class="divider"></div>
+    <p class="testi-intro" data-i="testi_intro">Every patient's journey matters. Here are some of the kind words shared by those I've had the privilege of caring for.</p>
+    <div class="testi-grid reveal" id="testi-grid">
+      <!-- Sample cards — replace with real photos/quotes -->
+      <div class="testi-card">
+        <div class="testi-photo"><i class="fas fa-image"></i></div>
+        <div class="testi-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote" data-i="t1q">"Dr. Than explained everything so clearly before my surgery. I felt safe and well-cared for throughout. Recovery was much faster than I expected."</p>
+          <div class="testi-name" data-i="t1n">— Patient, Colorectal Surgery</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-photo"><i class="fas fa-image"></i></div>
+        <div class="testi-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote" data-i="t2q">"My hernia repair was done laparoscopically. Minimal pain, back to normal in days. Very grateful for Dr. Than's skill and patience."</p>
+          <div class="testi-name" data-i="t2n">— Patient, Hernia Repair</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-photo"><i class="fas fa-image"></i></div>
+        <div class="testi-body">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote" data-i="t3q">"医生很耐心，用华语解释了手术的整个过程。手术后恢复很快，非常感谢！"</p>
+          <div class="testi-name" data-i="t3n">— 患者，大肠手术</div>
+        </div>
+      </div>
+      <div class="testi-placeholder">
+        <i class="fas fa-camera"></i>
+        <p data-i="testi_add">Your photo with patients will appear here.<br/>Contact us to add testimonials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT & FEEDBACK ── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label" data-i="contact_label">Get In Touch</p>
+    <h2 class="section-title" data-i="contact_title">Contact Dr. Than Da Jun</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3 data-i="contact_reach">How to Reach Me</h3>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><strong>+60 16-827 7181</strong><span data-i="c1s">Call or WhatsApp</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><strong>dajun@live.com</strong><span data-i="c2s">General enquiries</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-hospital"></i></div>
+          <div><strong data-i="c3">Hospital Queen Elizabeth II</strong><span>Kota Kinabalu, Sabah, Malaysia</span></div>
+        </div>
+        <div class="contact-social">
+          <a href="https://linkedin.com/in/dajun-than/" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/60168277181" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:dajun@live.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="form-box">
+          <h3 data-i="form_title">Send a Message / Leave Feedback</h3>
+          <form id="contact-form" onsubmit="submitForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label data-i="f_name">Full Name *</label>
+                <input type="text" required placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label data-i="f_phone">Phone / WhatsApp *</label>
+                <input type="tel" required placeholder="+60 1X-XXX XXXX" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label data-i="f_email">Email</label>
+              <input type="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label data-i="f_reason">Reason for Contact</label>
+              <select>
+                <option data-i="f_r1">Appointment Enquiry</option>
+                <option data-i="f_r2">Post-operative Question</option>
+                <option data-i="f_r3">General Feedback</option>
+                <option data-i="f_r4">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i="f_msg">Message / Feedback</label>
+              <textarea placeholder="How can I help you?"></textarea>
+            </div>
+            <div class="form-group" style="display:flex;align-items:center;gap:10px;">
+              <input type="checkbox" id="consent" style="width:auto;accent-color:var(--teal2);" />
+              <label for="consent" style="margin:0;font-size:.8rem;" data-i="f_consent">I consent to my contact details being stored for follow-up purposes.</label>
+            </div>
+            <button type="submit" class="form-submit" data-i="f_submit">Send Message</button>
+          </form>
+          <div class="form-success" id="form-success">
+            <i class="fas fa-check-circle"></i>
+            <p data-i="f_thanks">Thank you! Your message has been received. Dr. Than will be in touch shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Dr. Than Da Jun</strong> · General Surgeon · Hospital Queen Elizabeth II, Kota Kinabalu, Sabah</p>
+  <p style="margin-top:6px;font-size:.76rem;">MMC Registered · MOH Malaysia · MRCS (Edinburgh)</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<div class="float-cta">
+  <a href="https://wa.me/60168277181?text=Hello%20Dr.%20Than%2C%20I%20would%20like%20to%20enquire%20about%20an%20appointment." target="_blank" class="float-btn float-wa">
+    <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i="wa_btn">WhatsApp Dr. Than</span>
+  </a>
+</div>
+
+<script>
+/* ── i18n data ── */
+const i18n = {
+  en: {
+    nav_about:"About",nav_spec:"Specialties",nav_testi:"Patients",nav_contact:"Contact",
+    hero_badge:"General Surgeon · Sabah",
+    hero_sub:"MD · MRCS · Doctor of General Surgery · ATLS",
+    hero_hosp:"Hospital Queen Elizabeth II, Kota Kinabalu, Sabah",
+    hero_btn1:"Get in Touch",hero_btn2:"Learn More",
+    photo_hint:"Your photo here",
+    stat1:"Years Experience",stat2:"Publications",stat3:"Institutions",
+    about_label:"About Me",about_title:"Trained for Excellence,\nCommitted to Patients",
+    about_p1:"I am a General Surgeon with special interest in <strong>Laparoscopic Colorectal and Hernia Surgery</strong>, based at Hospital Queen Elizabeth II in Kota Kinabalu, Sabah. My journey in medicine began at Jinan University, China, and I have since trained and practised across Sabah for over a decade.",
+    about_p2:"I hold a <strong>Doctor of General Surgery</strong> from the National University of Malaysia (UKM) and am a <strong>Member of the Royal College of Surgeons, Edinburgh (MRCS)</strong>. My commitment to the field extends to education — serving as an MRCS examiner, cancer awareness speaker, and coordinator for international surgical conferences.",
+    about_p3:"I speak English, Malay, and Chinese, allowing me to communicate directly and clearly with patients from diverse backgrounds across Sabah.",
+    lang_title:"Languages",qual_title:"Qualifications",reg_title:"Registration",
+    q1:"Doctor of General Surgery",q2:"MRCS",q3:"Doctor of Medicine (MD)",
+    r1:"Malaysia Medical Council",r1s:"Active Registration",r2:"Ministry of Health, Malaysia",r2s:"Active Registration",
+    spec_label:"Areas of Expertise",spec_title:"What I Treat & Perform",
+    sp1:"Laparoscopic Colorectal Surgery",sp1d:"Minimally invasive bowel resections, colon cancer surgery, rectal procedures with faster recovery.",
+    sp2:"Hernia Repair",sp2d:"Laparoscopic inguinal, umbilical, incisional and complex abdominal wall hernia repairs.",
+    sp3:"Endoscopy",sp3d:"Diagnostic and therapeutic upper GI endoscopy and colonoscopy for bowel health evaluation.",
+    sp4:"Emergency Surgery",sp4d:"Acute abdominal emergencies, trauma surgery and critical care surgical management.",
+    sp5:"Colorectal Cancer",sp5d:"Screening, diagnosis and surgical management of colorectal cancers with a multidisciplinary approach.",
+    exp_label:"Career Journey",exp_title:"Experience",
+    tl1:"General Surgeon",tl1p:"Hospital Queen Elizabeth II, Kota Kinabalu, Sabah",
+    tl2:"Surgical Resident",tl2p:"Hospital Queen Elizabeth, Sabah",
+    tl3:"Medical Officer",tl3p:"Hospital Beaufort & Hospital Tawau, Sabah",
+    tl4:"House Officer",tl4p:"Hospital Queen Elizabeth, Sabah",
+    ach_label:"Leadership & Recognition",ach_title:"Key Roles & Achievements",
+    a1:"APFCP Coordinator, Sabah",a2:"MRCS Examiner",a3:"Cancer Awareness Speaker",
+    a4:"SELSMA Invited Speaker",a5:"Sabah Surgical Society",a6:"International Masterclass",
+    pub_label:"Research",pub_title:"Peer-Reviewed Publications",
+    testi_label:"Patient Stories",testi_title:"What Patients Say",
+    testi_intro:"Every patient's journey matters. Here are some of the kind words shared by those I've had the privilege of caring for.",
+    t1q:'"Dr. Than explained everything so clearly before my surgery. I felt safe and well-cared for throughout. Recovery was much faster than I expected."',
+    t1n:"— Patient, Colorectal Surgery",
+    t2q:'"My hernia repair was done laparoscopically. Minimal pain, back to normal in days. Very grateful for Dr. Than\'s skill and patience."',
+    t2n:"— Patient, Hernia Repair",
+    t3q:'"医生很耐心，用华语解释了手术的整个过程。手术后恢复很快，非常感谢！"',
+    t3n:"— 患者，大肠手术",
+    testi_add:"Your photo with patients will appear here.\nContact us to add testimonials.",
+    contact_label:"Get In Touch",contact_title:"Contact Dr. Than Da Jun",
+    contact_reach:"How to Reach Me",
+    c1s:"Call or WhatsApp",c2s:"General enquiries",c3:"Hospital Queen Elizabeth II",
+    form_title:"Send a Message / Leave Feedback",
+    f_name:"Full Name *",f_phone:"Phone / WhatsApp *",f_email:"Email",
+    f_reason:"Reason for Contact",f_r1:"Appointment Enquiry",f_r2:"Post-operative Question",f_r3:"General Feedback",f_r4:"Other",
+    f_msg:"Message / Feedback",f_consent:"I consent to my contact details being stored for follow-up purposes.",
+    f_submit:"Send Message",f_thanks:"Thank you! Your message has been received. Dr. Than will be in touch shortly.",
+    wa_btn:"WhatsApp Dr. Than",
+  },
+  zh: {
+    nav_about:"关于我",nav_spec:"专长",nav_testi:"病患心声",nav_contact:"联系我们",
+    hero_badge:"普通外科医生 · 沙巴",
+    hero_sub:"医学博士 · MRCS · 外科博士 · ATLS",
+    hero_hosp:"伊丽莎白女王二世医院，亚庇，沙巴",
+    hero_btn1:"联系我",hero_btn2:"了解更多",
+    photo_hint:"医生照片",
+    stat1:"年从医经验",stat2:"学术论文",stat3:"培训机构",
+    about_label:"关于我",about_title:"专业培训，\n以病患为中心",
+    about_p1:"我是一名普通外科医生，专长为<strong>腹腔镜大肠及疝气手术</strong>，驻诊于沙巴亚庇伊丽莎白女王二世医院。我在中国暨南大学完成医学本科，并在沙巴从事医疗超过十年。",
+    about_p2:"我持有马来西亚国立大学（UKM）<strong>外科博士</strong>学位，并是<strong>爱丁堡英国皇家外科学院会员（MRCS）</strong>。我积极参与医学教育，担任MRCS考试官、癌症意识演讲者及国际外科会议协调员。",
+    about_p3:"我能流利使用英语、马来语及华语与各背景的病患沟通，让您更放心。",
+    lang_title:"语言",qual_title:"学历资格",reg_title:"注册资质",
+    q1:"外科博士",q2:"英国皇家外科学院会员（MRCS）",q3:"医学博士（MD）",
+    r1:"马来西亚医药理事会",r1s:"有效注册",r2:"马来西亚卫生部",r2s:"有效注册",
+    spec_label:"专业领域",spec_title:"我的手术专长",
+    sp1:"腹腔镜大肠外科",sp1d:"微创肠道切除术、大肠癌手术、直肠手术，恢复快速。",
+    sp2:"疝气修补术",sp2d:"腹腔镜腹股沟疝、脐疝、切口疝及复杂腹壁疝修补。",
+    sp3:"内窥镜检查",sp3d:"上消化道内窥镜及结肠镜检查，用于诊断和治疗。",
+    sp4:"急症外科",sp4d:"急性腹部急症、创伤外科及重症外科处理。",
+    sp5:"大肠癌",sp5d:"大肠癌的筛查、诊断及多学科综合手术治疗。",
+    exp_label:"职业历程",exp_title:"从医经历",
+    tl1:"普通外科医生",tl1p:"伊丽莎白女王二世医院，亚庇，沙巴",
+    tl2:"外科驻院医生",tl2p:"伊丽莎白女王医院，沙巴",
+    tl3:"医务官员",tl3p:"保佛医院 & 斗湖医院，沙巴",
+    tl4:"实习医生",tl4p:"伊丽莎白女王医院，沙巴",
+    ach_label:"荣誉与职务",ach_title:"主要职务与成就",
+    a1:"亚太结直肠外科联合会协调员（沙巴）",a2:"MRCS考试官",a3:"癌症意识演讲者",
+    a4:"SELSMA 受邀演讲者",a5:"沙巴外科学会会员",a6:"国际外科大师班学员",
+    pub_label:"学术研究",pub_title:"同行评审论文",
+    testi_label:"病患心声",testi_title:"他们这样说",
+    testi_intro:"每一位病患的康复旅程都是我的骄傲。以下是他们真诚的分享。",
+    t1q:"「医生在手术前把一切解释得非常清楚，让我感到安心。恢复比预期快很多，非常感谢！」",
+    t1n:"— 病患，大肠手术",
+    t2q:"「我的疝气是用腹腔镜做的，几乎没有痛感，几天就恢复正常了。非常感谢戴军医生！」",
+    t2n:"— 病患，疝气修补术",
+    t3q:"「医生很耐心，用华语解释了手术的整个过程。手术后恢复很快，非常感谢！」",
+    t3n:"— 病患，大肠手术",
+    testi_add:"病患与医生合照将在此展示。\n欢迎联系我们添加见证。",
+    contact_label:"联系我们",contact_title:"联系戴军医生",
+    contact_reach:"联系方式",
+    c1s:"致电或 WhatsApp",c2s:"一般查询",c3:"伊丽莎白女王二世医院",
+    form_title:"发送信息 / 留下反馈",
+    f_name:"全名 *",f_phone:"电话 / WhatsApp *",f_email:"电子邮件",
+    f_reason:"联系原因",f_r1:"预约查询",f_r2:"术后问题",f_r3:"一般反馈",f_r4:"其他",
+    f_msg:"信息 / 反馈",f_consent:"我同意我的联系资料被保留以供跟进。",
+    f_submit:"发送信息",f_thanks:"感谢您！您的信息已收到，戴军医生将尽快回复您。",
+    wa_btn:"WhatsApp 戴军医生",
+  },
+  ms: {
+    nav_about:"Tentang Saya",nav_spec:"Kepakaran",nav_testi:"Pesakit",nav_contact:"Hubungi",
+    hero_badge:"Pakar Bedah Am · Sabah",
+    hero_sub:"MD · MRCS · Doktor Pembedahan Am · ATLS",
+    hero_hosp:"Hospital Queen Elizabeth II, Kota Kinabalu, Sabah",
+    hero_btn1:"Hubungi Saya",hero_btn2:"Ketahui Lebih Lanjut",
+    photo_hint:"Foto doktor di sini",
+    stat1:"Tahun Pengalaman",stat2:"Penerbitan",stat3:"Institusi",
+    about_label:"Tentang Saya",about_title:"Terlatih untuk Kecemerlangan,\nKomited kepada Pesakit",
+    about_p1:"Saya adalah Pakar Bedah Am dengan kepakaran dalam <strong>Pembedahan Kolorektal Laparoskopik dan Hernia</strong>, berkhidmat di Hospital Queen Elizabeth II, Kota Kinabalu, Sabah. Saya memulakan perjalanan perubatan di Universiti Jinan, China, dan telah berkhidmat di Sabah selama lebih satu dekad.",
+    about_p2:"Saya memiliki <strong>Doktor Pembedahan Am</strong> dari Universiti Kebangsaan Malaysia (UKM) dan merupakan <strong>Ahli Royal College of Surgeons, Edinburgh (MRCS)</strong>. Saya turut aktif dalam pendidikan perubatan sebagai pemeriksa MRCS, penceramah kesedaran kanser dan penyelaras persidangan pembedahan antarabangsa.",
+    about_p3:"Saya fasih berbahasa Inggeris, Bahasa Melayu dan Bahasa Cina, membolehkan saya berkomunikasi dengan jelas dengan pesakit dari pelbagai latar belakang.",
+    lang_title:"Bahasa",qual_title:"Kelayakan Akademik",reg_title:"Pendaftaran",
+    q1:"Doktor Pembedahan Am",q2:"MRCS (Edinburgh)",q3:"Doktor Perubatan (MD)",
+    r1:"Majlis Perubatan Malaysia",r1s:"Pendaftaran Aktif",r2:"Kementerian Kesihatan Malaysia",r2s:"Pendaftaran Aktif",
+    spec_label:"Bidang Kepakaran",spec_title:"Apa Yang Saya Rawat & Lakukan",
+    sp1:"Pembedahan Kolorektal Laparoskopik",sp1d:"Reseksi usus minimally invasive, pembedahan kanser kolon, prosedur rektum dengan pemulihan lebih cepat.",
+    sp2:"Pembaikan Hernia",sp2d:"Pembaikan hernia inguinal, umbilik, insisional dan dinding abdomen kompleks secara laparoskopik.",
+    sp3:"Endoskopi",sp3d:"Endoskopi GI atas dan kolonoskopi diagnostik dan terapeutik untuk penilaian kesihatan usus.",
+    sp4:"Pembedahan Kecemasan",sp4d:"Kecemasan abdomen akut, pembedahan trauma dan pengurusan pembedahan kritikal.",
+    sp5:"Kanser Kolorektal",sp5d:"Saringan, diagnosis dan pengurusan pembedahan kanser kolorektal dengan pendekatan pelbagai disiplin.",
+    exp_label:"Perjalanan Kerjaya",exp_title:"Pengalaman",
+    tl1:"Pakar Bedah Am",tl1p:"Hospital Queen Elizabeth II, Kota Kinabalu, Sabah",
+    tl2:"Residen Pembedahan",tl2p:"Hospital Queen Elizabeth, Sabah",
+    tl3:"Pegawai Perubatan",tl3p:"Hospital Beaufort & Hospital Tawau, Sabah",
+    tl4:"Pegawai Perubatan Siswazah",tl4p:"Hospital Queen Elizabeth, Sabah",
+    ach_label:"Kepimpinan & Pengiktirafan",ach_title:"Peranan & Pencapaian Utama",
+    a1:"Penyelaras APFCP, Sabah",a2:"Pemeriksa MRCS",a3:"Penceramah Kesedaran Kanser",
+    a4:"Penceramah Jemputan SELSMA",a5:"Ahli Persatuan Bedah Sabah",a6:"Masterclass Antarabangsa",
+    pub_label:"Penyelidikan",pub_title:"Penerbitan Semakan Rakan Sejawat",
+    testi_label:"Kisah Pesakit",testi_title:"Apa Kata Pesakit",
+    testi_intro:"Setiap perjalanan pemulihan pesakit adalah kebanggaan saya. Berikut adalah perkongsian ikhlas mereka.",
+    t1q:"\"Dr. Than menjelaskan segala-galanya dengan jelas sebelum pembedahan. Saya berasa selamat dan terjaga sepanjang masa. Pemulihan jauh lebih cepat daripada yang dijangkakan.\"",
+    t1n:"— Pesakit, Pembedahan Kolorektal",
+    t2q:"\"Pembaikan hernia saya dilakukan secara laparoskopik. Sakit minimal, kembali normal dalam beberapa hari. Sangat bersyukur dengan kemahiran Dr. Than.\"",
+    t2n:"— Pesakit, Pembaikan Hernia",
+    t3q:"\"医生很耐心，用华语解释了手术的整个过程。手术后恢复很快，非常感谢！\"",
+    t3n:"— Pesakit, Pembedahan Usus",
+    testi_add:"Foto bersama pesakit akan dipaparkan di sini.\nHubungi kami untuk menambah testimoni.",
+    contact_label:"Hubungi Kami",contact_title:"Hubungi Dr. Than Da Jun",
+    contact_reach:"Cara Menghubungi Saya",
+    c1s:"Telefon atau WhatsApp",c2s:"Pertanyaan umum",c3:"Hospital Queen Elizabeth II",
+    form_title:"Hantar Mesej / Tinggalkan Maklum Balas",
+    f_name:"Nama Penuh *",f_phone:"Telefon / WhatsApp *",f_email:"E-mel",
+    f_reason:"Sebab Menghubungi",f_r1:"Pertanyaan Temujanji",f_r2:"Soalan Selepas Pembedahan",f_r3:"Maklum Balas Umum",f_r4:"Lain-lain",
+    f_msg:"Mesej / Maklum Balas",f_consent:"Saya bersetuju maklumat hubungan saya disimpan untuk tindakan susulan.",
+    f_submit:"Hantar Mesej",f_thanks:"Terima kasih! Mesej anda telah diterima. Dr. Than akan menghubungi anda tidak lama lagi.",
+    wa_btn:"WhatsApp Dr. Than",
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach((b,i) => {
+    b.classList.toggle('active', ['en','zh','ms'][i] === lang);
+  });
+  const d = i18n[lang];
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const key = el.getAttribute('data-i');
+    if (d[key] !== undefined) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = d[key];
+      } else if (el.innerHTML.includes('<strong>') || d[key].includes('<strong>')) {
+        el.innerHTML = d[key];
+      } else {
+        el.textContent = d[key];
+      }
+    }
+  });
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang === 'ms' ? 'ms' : 'en';
+}
+
+function toggleNav() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  // In production: send to backend / Formspree / EmailJS
+}
+
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

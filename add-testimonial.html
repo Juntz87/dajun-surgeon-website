@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Testimonial — Dr. Than Da Jun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f0f4f8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{background:#fff;border-radius:16px;padding:40px;max-width:680px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.1)}
+    h1{font-size:1.5rem;color:#0d2137;margin-bottom:6px}
+    .sub{color:#5a7080;font-size:.88rem;margin-bottom:32px}
+    .form-group{margin-bottom:20px}
+    label{display:block;font-size:.82rem;font-weight:600;color:#0d2137;margin-bottom:6px}
+    input,textarea,select{width:100%;padding:11px 14px;border:1.5px solid #d4e1e8;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;color:#1a2a3a;transition:border-color .2s}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:#0b7c8e}
+    textarea{resize:vertical;min-height:90px}
+    .preview-box{border:2px dashed #d4e1e8;border-radius:12px;padding:24px;margin-bottom:20px;min-height:80px;display:flex;align-items:center;justify-content:center;color:#5a7080;font-size:.85rem;text-align:center}
+    .preview-box img{max-height:200px;border-radius:8px;object-fit:cover}
+    .btn{width:100%;padding:13px;background:#0b7c8e;color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .2s}
+    .btn:hover{background:#0e9aad}
+    .output{margin-top:28px;background:#f5f8fa;border-radius:8px;padding:20px;font-size:.82rem;color:#1a2a3a}
+    .output h3{font-size:.9rem;color:#0d2137;margin-bottom:10px}
+    pre{white-space:pre-wrap;word-break:break-all;font-family:monospace;font-size:.8rem;color:#0b7c8e;background:#fff;padding:12px;border-radius:6px;border:1px solid #d4e1e8;max-height:260px;overflow-y:auto}
+    .copy-btn{margin-top:10px;padding:8px 18px;background:#0d2137;color:#fff;border:none;border-radius:6px;font-size:.82rem;cursor:pointer}
+    .stars{display:flex;gap:6px;font-size:1.4rem;cursor:pointer;margin-bottom:4px}
+    .star{color:#d4e1e8;transition:color .15s}
+    .star.on{color:#c9a84c}
+    .note{font-size:.78rem;color:#5a7080;margin-top:4px}
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>➕ Add Patient Testimonial</h1>
+  <p class="sub">Fill in the details below — the tool generates the HTML snippet to paste into <code>index.html</code>.</p>
+
+  <div class="form-group">
+    <label>Patient Photo</label>
+    <input type="file" id="photoInput" accept="image/*" onchange="previewPhoto(this)"/>
+    <div class="preview-box" id="photoPreview"><i>No photo selected — drag & drop or click above</i></div>
+    <p class="note">Upload a JPG/PNG. Save it in an <code>images/</code> folder and note the filename.</p>
+  </div>
+
+  <div class="form-group">
+    <label>Image Filename (after uploading to /images/)</label>
+    <input type="text" id="imgFile" placeholder="e.g. patient-ali-2025.jpg"/>
+  </div>
+
+  <div class="form-group">
+    <label>Star Rating</label>
+    <div class="stars" id="stars">
+      <span class="star on" data-v="1">★</span>
+      <span class="star on" data-v="2">★</span>
+      <span class="star on" data-v="3">★</span>
+      <span class="star on" data-v="4">★</span>
+      <span class="star on" data-v="5">★</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Patient Quote (in their own words)</label>
+    <textarea id="quoteInput" placeholder="e.g. Dr. Than was very caring and professional..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Patient Name / Label</label>
+    <input type="text" id="nameInput" placeholder="e.g. — Puan Siti, Hernia Repair"/>
+  </div>
+
+  <div class="form-group">
+    <label>Language</label>
+    <select id="langSelect">
+      <option value="en">English</option>
+      <option value="zh">中文 (Chinese)</option>
+      <option value="ms">Bahasa Melayu</option>
+    </select>
+  </div>
+
+  <button class="btn" onclick="generate()">Generate HTML Snippet</button>
+
+  <div class="output" id="output" style="display:none">
+    <h3>📋 Copy this snippet and paste inside <code>&lt;div id="testi-grid"&gt;</code> in index.html</h3>
+    <pre id="snippet"></pre>
+    <button class="copy-btn" onclick="copySnippet()">Copy to Clipboard</button>
+  </div>
+</div>
+
+<script>
+let rating = 5;
+document.querySelectorAll('.star').forEach(s => {
+  s.addEventListener('click', () => {
+    rating = +s.dataset.v;
+    document.querySelectorAll('.star').forEach(st => st.classList.toggle('on', +st.dataset.v <= rating));
+  });
+});
+
+function previewPhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('photoPreview').innerHTML = `<img src="${e.target.result}" alt="preview"/>`;
+    if (!document.getElementById('imgFile').value) {
+      document.getElementById('imgFile').value = file.name;
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function generate() {
+  const img   = document.getElementById('imgFile').value.trim();
+  const quote = document.getElementById('quoteInput').value.trim().replace(/"/g, '&quot;');
+  const name  = document.getElementById('nameInput').value.trim();
+  const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  if (!quote || !name) { alert('Please fill in the quote and name fields.'); return; }
+  const imgTag = img
+    ? `<img src="images/${img}" alt="${name}" loading="lazy"/>`
+    : `<i class="fas fa-image"></i>`;
+
+  const html = `<div class="testi-card">
+  <div class="testi-photo">${imgTag}</div>
+  <div class="testi-body">
+    <div class="testi-stars">${stars}</div>
+    <p class="testi-quote">"${quote}"</p>
+    <div class="testi-name">${name}</div>
+  </div>
+</div>`;
+  document.getElementById('snippet').textContent = html;
+  document.getElementById('output').style.display = 'block';
+  document.getElementById('output').scrollIntoView({behavior:'smooth'});
+}
+
+function copySnippet() {
+  navigator.clipboard.writeText(document.getElementById('snippet').textContent)
+    .then(() => alert('Copied! Paste it inside <div id="testi-grid"> in index.html'));
+}
+</script>
+</body>
+</html>
