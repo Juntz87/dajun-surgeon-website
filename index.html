@@ -568,7 +568,7 @@
       <div class="reveal">
         <div class="form-box">
           <h3 data-i="form_title">Send a Message / Leave Feedback</h3>
-          <form id="contact-form" onsubmit="submitForm(event)">
+          <form id="contact-form" action="https://formspree.io/f/xbdvrpka" method="POST" onsubmit="submitForm(event)">
             <div class="form-row">
               <div class="form-group">
                 <label data-i="f_name">Full Name *</label>
@@ -803,11 +803,28 @@ function toggleNav() {
   document.getElementById('nav-links').classList.toggle('open');
 }
 
-function submitForm(e) {
+async function submitForm(e) {
   e.preventDefault();
-  document.getElementById('contact-form').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-  // In production: send to backend / Formspree / EmailJS
+  const form = document.getElementById('contact-form');
+  const btn = form.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST', body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Failed — try WhatsApp instead';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Failed — try WhatsApp instead';
+    btn.disabled = false;
+  }
 }
 
 /* ── Scroll reveal ── */
